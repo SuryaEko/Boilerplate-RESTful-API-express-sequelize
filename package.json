@@ -4,7 +4,8 @@
   "description": "Simple REST API using express and sequelize",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "nodemon bin/www.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,14 @@
   },
   "homepage": "https://github.com/suryaeko/Boilerplate-RESTful-API-express-sequelize#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.4",
     "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }
