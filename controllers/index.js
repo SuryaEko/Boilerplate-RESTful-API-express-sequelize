@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const express = require("express");
-const router = express.Router();
+
+const Controller = {};
 
 const basename = path.basename(__filename);
 fs.readdirSync(__dirname)
@@ -11,13 +11,9 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach((file) => {
-    require(path.join(__dirname, file))(router);
+    const _pathFile = path.join(__dirname, file);
+    const _conName = path.basename(_pathFile, ".js");
+    Controller[_conName] = require(_pathFile);
   });
 
-router.get("/", (req, res) =>
-  res.status(200).send({
-    message: "Welcome to the API!",
-  })
-);
-
-module.exports = router;
+module.exports = Controller;
