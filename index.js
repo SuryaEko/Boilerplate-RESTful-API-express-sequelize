@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
+const ErrorMiddleware = require("./middlewares/ErrorMiddleware");
 
 // Set up the express app
 const app = express();
@@ -26,5 +27,7 @@ app.get("*", (req, res) =>
     message: "Welcome to the beginning of nothingness.",
   })
 );
+
+app.use(ErrorMiddleware);
 
 module.exports = app;
